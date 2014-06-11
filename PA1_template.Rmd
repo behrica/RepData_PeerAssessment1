@@ -49,6 +49,31 @@ This interval has `r mean.per.interval[max.index][[1]]` steps on average.
 
 
 ## Imputing missing values
+The activity data set contains ´r nrow(activity[is.na(activity$steps),])´ rows where data fro teh number of steps is missing.
+
+We will replace those NAs with the average number of steps for its interval.
+```{r}
+steps.imputted <- apply(X=activity[is.na(activity),],MARGIN=1,FUN=function(x) {
+
+  interval <- as.character(as.integer(x[3]))
+  mean.per.interval[interval]
+})
+activity.imputted <- data.frame(activity)
+activity.imputted[is.na(activity),]$steps <- steps.imputted
+```
+
+```{r}
+
+sum.per.day.imputted <- sapply(split(activity.imputted$steps,f=activity$date),sum)
+hist(sum.per.day.imputted)
+mean.sum.per.day.imputted <-  mean(sum.per.day.imputted)
+median.sum.per.day.imputted <-  median(sum.per.day.imputted)
+
+```
+
+
+The __imputted mean__ total number of steps per day is `r mean.sum.per.day.imputted` and the __imputted median__ total number of steps per day is `r median.sum.per.day.imputted`
+
 
 
 
