@@ -24,12 +24,10 @@ sum.per.day <- sapply(split(activity$steps,f=activity$date),sum)
 hist(sum.per.day)
 mean.sum.per.day <-  mean(sum.per.day,na.rm=T)
 median.sum.per.day <-  median(sum.per.day,na.rm=T)
-
 ```
 
 
 The __mean__ total number of steps per day is `r mean.sum.per.day` and the __median__ total number of steps per day is `r median.sum.per.day`
-
 
 
 ## What is the average daily activity pattern?
@@ -63,12 +61,10 @@ activity.imputted[is.na(activity),]$steps <- steps.imputted
 ```
 
 ```{r}
-
 sum.per.day.imputted <- sapply(split(activity.imputted$steps,f=activity$date),sum)
 hist(sum.per.day.imputted)
 mean.sum.per.day.imputted <-  mean(sum.per.day.imputted)
 median.sum.per.day.imputted <-  median(sum.per.day.imputted)
-
 ```
 
 
