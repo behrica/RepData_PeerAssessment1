@@ -98,4 +98,4 @@ The activity pattern is different during weekdays and weekends.
 
 The plots show, that in general, the activity of the person , measured in number of steps, is more homogeneous during the weekend. There is more "continuous activity" during the day.
 
-While the weekday patterns shows a prominent high peek activity around interval 800, which is even higher then any peek during then weekend, but then the activity slows down and stays lower then during the weekend.
+The weekday patterns shows a prominent high peek activity around interval 800, which is even higher then any peek during then weekend, but then the activity slows down and stays lower then during the weekend.
