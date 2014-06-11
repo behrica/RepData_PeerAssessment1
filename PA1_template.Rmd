@@ -38,9 +38,14 @@ mean.per.interval <- sapply(split(activity$steps,activity$interval),mean,na.rm=T
 plot(mean.per.interval,type="l",xaxt="n",xlab="interval",ylab="average steps")
 labels <- seq(from=1,to=288,length.out=5)
 axis(1,labels=names(mean.per.interval)[labels],at=labels)
-
 ```
 
+```{r}
+max.index <- which.max(mean.per.interval)[[1]]
+```
+
+The maximum number of steps (on average) is in the intervall `r names(mean.per.interval)[max.index]`.
+This interval has `r mean.per.interval[max.index][[1]]` steps on average.
 
 
 ## Imputing missing values
