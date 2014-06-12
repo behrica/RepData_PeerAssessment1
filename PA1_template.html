@@ -195,7 +195,7 @@ activity$date &lt;- as.Date(activity$date)
 
 <h2>What is mean total number of steps taken per day?</h2>
 
-<p>The distribution of the total number of steps per day can be seen in the following histogram.</p>
+<p>The distribution of the mean total number of steps per day can be seen in the following histogram.</p>
 
 <pre><code class="r">sum.per.day &lt;- sapply(split(activity$steps, f = activity$date), sum)
 hist(sum.per.day)
@@ -228,7 +228,7 @@ This interval has 206.17 steps on average.</p>
 
 <h2>Imputing missing values</h2>
 
-<p>The activity data set contains ´r nrow(activity[is.na(activity$steps),])´ rows where data fro the number of steps is missing.</p>
+<p>The activity data set contains ´r nrow(activity[is.na(activity$steps),])´ rows where data from the number of steps is missing.</p>
 
 <p>We will replace those NAs with the average number of steps for its interval.</p>
 
@@ -241,8 +241,7 @@ activity.imputted &lt;- data.frame(activity)
 activity.imputted[is.na(activity), ]$steps &lt;- steps.imputted
 </code></pre>
 
-<pre><code class="r">
-sum.per.day.imputted &lt;- sapply(split(activity.imputted$steps, f = activity$date), 
+<pre><code class="r">sum.per.day.imputted &lt;- sapply(split(activity.imputted$steps, f = activity$date), 
     sum)
 hist(sum.per.day.imputted)
 </code></pre>
@@ -288,7 +287,7 @@ axis(1, labels = names(mean.per.interval.imputted.weekday)[labels], at = labels)
 
 <p>The plots show, that in general, the activity of the person , measured in number of steps, is more homogeneous during the weekend. There is more &ldquo;continuous activity&rdquo; during the day.</p>
 
-<p>While the weekday patterns shows a prominent high peek activity around interval 800, which is even higher then any peek during then weekend, but then the activity slows down and stays lower then during the weekend.</p>
+<p>The weekday patterns shows a prominent high peek activity around interval 800, which is even higher then any peek during then weekend, but then the activity slows down and stays lower then during the weekend.</p>
 
 </body>
 

@@ -21,7 +21,7 @@ activity$date <- as.Date(activity$date)
 
 
 ## What is mean total number of steps taken per day?
-The distribution of the total number of steps per day can be seen in the following histogram.
+The distribution of the mean total number of steps per day can be seen in the following histogram.
 
 
 ```r
@@ -39,7 +39,6 @@ median.sum.per.day <- median(sum.per.day, na.rm = T)
 
 
 The __mean__ total number of steps per day is 10766.19 and the __median__ total number of steps per day is 10765
-
 
 
 ## What is the average daily activity pattern?
@@ -66,7 +65,7 @@ This interval has 206.17 steps on average.
 
 
 ## Imputing missing values
-The activity data set contains ´r nrow(activity[is.na(activity$steps),])´ rows where data fro the number of steps is missing.
+The activity data set contains ´r nrow(activity[is.na(activity$steps),])´ rows where data from the number of steps is missing.
 
 We will replace those NAs with the average number of steps for its interval.
 
@@ -83,7 +82,6 @@ activity.imputted[is.na(activity), ]$steps <- steps.imputted
 
 
 ```r
-
 sum.per.day.imputted <- sapply(split(activity.imputted$steps, f = activity$date), 
     sum)
 hist(sum.per.day.imputted)
@@ -135,4 +133,4 @@ The activity pattern is different during weekdays and weekends.
 
 The plots show, that in general, the activity of the person , measured in number of steps, is more homogeneous during the weekend. There is more "continuous activity" during the day.
 
-While the weekday patterns shows a prominent high peek activity around interval 800, which is even higher then any peek during then weekend, but then the activity slows down and stays lower then during the weekend.
+The weekday patterns shows a prominent high peek activity around interval 800, which is even higher then any peek during then weekend, but then the activity slows down and stays lower then during the weekend.

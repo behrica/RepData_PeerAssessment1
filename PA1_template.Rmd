@@ -17,7 +17,7 @@ activity$date <- as.Date(activity$date)
 
 
 ## What is mean total number of steps taken per day?
-The distribution of the total number of steps per day can be seen in the following histogram.
+The distribution of the mean total number of steps per day can be seen in the following histogram.
 
 ```{r}
 sum.per.day <- sapply(split(activity$steps,f=activity$date),sum)
@@ -47,7 +47,7 @@ This interval has `r mean.per.interval[max.index][[1]]` steps on average.
 
 
 ## Imputing missing values
-The activity data set contains ´r nrow(activity[is.na(activity$steps),])´ rows where data fro the number of steps is missing.
+The activity data set contains ´r nrow(activity[is.na(activity$steps),])´ rows where data from the number of steps is missing.
 
 We will replace those NAs with the average number of steps for its interval.
 ```{r}
