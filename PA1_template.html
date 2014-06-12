@@ -188,8 +188,7 @@ options(scipen = 1, digits = 2)
 
 <h2>Loading and preprocessing the data</h2>
 
-<pre><code class="r">unzip(&quot;activity.zip&quot;)
-activity &lt;- read.csv(&quot;activity.csv&quot;)
+<pre><code class="r">activity &lt;- read.csv(unz(&quot;activity.zip&quot;, &quot;activity.csv&quot;))
 activity$date &lt;- as.Date(activity$date)
 </code></pre>
 

@@ -12,8 +12,7 @@ options(scipen = 1, digits = 2)
 ## Loading and preprocessing the data
 
 ```r
-unzip("activity.zip")
-activity <- read.csv("activity.csv")
+activity <- read.csv(unz("activity.zip", "activity.csv"))
 activity$date <- as.Date(activity$date)
 ```
 
